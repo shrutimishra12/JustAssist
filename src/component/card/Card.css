@@ -1,0 +1,60 @@
+/* General card styling */
+.card {
+  width: 100%;
+  min-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  margin: 8px;
+  color: white; /* All text is white */
+}
+
+/* Flex container for card content */
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Specific text styling */
+.count-text {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
+.label-text {
+  font-size: 16px;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+/* Icon rotation animation */
+.rotating-icon {
+  width: 40px;
+  height: 40px;
+  animation: rotate-icon 2s infinite;
+}
+.calc-icon {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes rotate-icon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+/* Grid container for cards */
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+  gap: 16px;
+}

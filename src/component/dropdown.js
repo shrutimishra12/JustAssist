@@ -1,63 +1,100 @@
-import React, { useState } from 'react';
-import './dropdown.css';
+import React, { useState, useEffect } from "react";
+import stateData from "../data/state.json"; // Import the state.json file
+import "./dropdown.css";
 
-const CaseSelectionForm = () => {
-    const [state, setState] = useState('');
-    const [district, setDistrict] = useState('');
-    const [caseNumber, setCaseNumber] = useState('');
+const Dropdown = () => {
+  const [states, setStates] = useState([]);
+  const [districts, setDistricts] = useState([]);
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedDistrict, setSelectedDistrict] = useState("");
+  const [caseNumber, setCaseNumber] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        alert(`State: ${state}, District: ${district}, Case Number: ${caseNumber}`);
-    };
+  useEffect(() => {
+    setStates(stateData.states);
+  }, []);
 
-    return (
-        <div className="form-container">
-            <h2>Case Selection Form</h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="state">State:</label>
-                <select
-                    id="state"
-                    value={state}
-                    onChange={(e) => setState(e.target.value)}
-                    required
-                >
-                    <option value="" disabled>Select State</option>
-                    <option value="state1">State 1</option>
-                    <option value="state2">State 2</option>
-                    <option value="state3">State 3</option>
-                </select>
+  const handleStateChange = (e) => {
+    const stateName = e.target.value;
+    setSelectedState(stateName);
+    const stateObj = states.find((state) => state.state === stateName);
+    if (stateObj) {
+      setDistricts(stateObj.districts);
+      setSelectedDistrict("");
+    } else {
+      setDistricts([]);
+    }
+  };
 
-                <label htmlFor="district">District:</label>
-                <select
-                    id="district"
-                    value={district}
-                    onChange={(e) => setDistrict(e.target.value)}
-                    required
-                >
-                    <option value="" disabled>Select District</option>
-                    <option value="district1">District 1</option>
-                    <option value="district2">District 2</option>
-                    <option value="district3">District 3</option>
-                </select>
+  const handleDistrictChange = (e) => {
+    setSelectedDistrict(e.target.value);
+  };
 
-                <label htmlFor="caseNumber">Case Number:</label>
-                <select
-                    id="caseNumber"
-                    value={caseNumber}
-                    onChange={(e) => setCaseNumber(e.target.value)}
-                    required
-                >
-                    <option value="" disabled>Select Case Number</option>
-                    <option value="case1">Case 1</option>
-                    <option value="case2">Case 2</option>
-                    <option value="case3">Case 3</option>
-                </select>
-
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(
+      `State: ${selectedState}, District: ${selectedDistrict}, Case Number: ${caseNumber}`
     );
+  };
+
+  return (
+    <div className="form-container">
+      <h2>Case Selection Form</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="select-container">
+          <div className="input-group">
+            <label htmlFor="state">State:</label>
+            <select
+              id="state"
+              value={selectedState}
+              onChange={handleStateChange}
+              required
+            >
+              <option value="" disabled>
+                Select State
+              </option>
+              {states.map((state) => (
+                <option key={state.state} value={state.state}>
+                  {state.state}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="input-group">
+            <label htmlFor="district">District:</label>
+            <select
+              id="district"
+              value={selectedDistrict}
+              onChange={handleDistrictChange}
+              required
+              disabled={!selectedState} // Disable if no state selected
+            >
+              <option value="" disabled>
+                Select District
+              </option>
+              {districts.map((district) => (
+                <option key={district} value={district}>
+                  {district}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div className="input-group">
+          <label htmlFor="caseNumber">Case Number:</label>
+          <input
+            type="text"
+            id="caseNumber"
+            value={caseNumber}
+            onChange={(e) => setCaseNumber(e.target.value)}
+            required
+            placeholder="Enter Case Number"
+          />
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
 };
 
-export default CaseSelectionForm;
+export default Dropdown;
