@@ -62,7 +62,7 @@ const Logo = styled.div`
 
 const Sidebar = () => {
   return (
-    <SidebarContainer>
+    <SidebarContainer style={{marginTop:"58px"}}>
       <Logo>Legal Services</Logo>
       <MenuItem to="/case-status" exact>
         <FaHome /> Check Case Status

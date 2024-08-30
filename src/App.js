@@ -22,7 +22,7 @@ const ContentWrapper = styled.div`
   margin-top: 80px; /* Height of the header */
   margin-left: 240px; /* Width of the sidebar */
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: White;
   min-height: 100vh; /* Ensures content area covers the full viewport height */
 `;
 

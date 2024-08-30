@@ -7,19 +7,19 @@ const CardLayout = () => {
     <>
       <div className="grid-container">
         <Card
-          color="#FF7043" //props
+          color="#E90074" //props
           count="10970755"
           label="Civil Cases"
           cal={false}
         />
         <Card
-          color="#9575CD"
+          color="#180161"
           count="33598393"
           label="Criminal Cases"
           cals={false}
         />
         <Card
-          color="#26A69A"
+          color="#134B70"
           count="44569148"
           label="Total Cases"
           cal={false}
@@ -27,19 +27,19 @@ const CardLayout = () => {
       </div>
       <div className="grid-container">
         <Card
-          color="#FF7043"
+          color="#C40C0C"
           count="10970755 (61.16%)"
           label="Civil Cases More Than 1 Year Old."
           cal={true}
         />
         <Card
-          color="#9575CD"
+          color="#FC4100"
           count="33598393 (65.37%)"
           label="Criminal Cases More Than 1 Year Old."
           cal={true}
         />
         <Card
-          color="#26A69A"
+          color="Gold"
           count="44569148 (64.33%)"
           label="Total Cases More Than 1 Year Old."
           cal={true}

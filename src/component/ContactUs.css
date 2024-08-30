@@ -1,0 +1,32 @@
+
+
+
+
+
+
+.balloon-animation {
+ position: absolute;
+ bottom: 60px; /* Place it above the social icons */
+ left: 50%;
+ transform: translateX(-50%);
+ width: 20px;
+ height: 20px;
+ background-color: #d98aff; /* Balloon color */
+ border-radius: 50%;
+ animation: float 3s ease-in-out infinite;
+}
+
+
+@keyframes float {
+ 0% {
+   transform: translate(-50%, 0px);
+ }
+ 50% {
+   transform: translate(-50%, -20px);
+ }
+ 100% {
+   transform: translate(-50%, 0px);
+ }
+}
+
+

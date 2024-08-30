@@ -47,7 +47,7 @@ const StyledNavLink = styled(NavLink)`
 const Header = () => {
   return (
     <HeaderContainer>
-      <Logo>Court Case</Logo>
+      <Logo>JusAssist</Logo>
       <div style={{ marginRight: "28px" }}>
         <NavMenu>
           <StyledNavLink to="/" end>
