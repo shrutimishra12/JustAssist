@@ -47,29 +47,30 @@ const StyledNavLink = styled(NavLink)`
 const Header = () => {
   return (
     <HeaderContainer>
-      <Logo>JusAssist</Logo>
-      <div style={{ marginRight: "28px" }}>
-        <NavMenu>
-          <StyledNavLink to="/" end>
-            Home
-          </StyledNavLink>
-          <StyledNavLink to="/case-search" activeClassName="active">
-            Case Search
-          </StyledNavLink>
-          <StyledNavLink to="/judges" activeClassName="active">
-            Judges
-          </StyledNavLink>
-          <StyledNavLink to="/court-rules" activeClassName="active">
-            Court Rules
-          </StyledNavLink>
-          <StyledNavLink to="/resources" activeClassName="active">
-            Resources
-          </StyledNavLink>
-          <StyledNavLink to="/contact-us" activeClassName="active">
-            Contact Us
-          </StyledNavLink>
-        </NavMenu>
-      </div>
+      <Logo>JustAssist</Logo>
+      <NavMenu>
+        <StyledNavLink to="/your-assistant" activeClassName="active">
+          Your Assistant
+        </StyledNavLink>
+        <StyledNavLink to="/" end>
+          Home
+        </StyledNavLink>
+        <StyledNavLink to="/case-search" activeClassName="active">
+          Case Search
+        </StyledNavLink>
+        <StyledNavLink to="/judges" activeClassName="active">
+          Judges
+        </StyledNavLink>
+        <StyledNavLink to="/court-rules" activeClassName="active">
+          Court Rules
+        </StyledNavLink>
+        <StyledNavLink to="/resources" activeClassName="active">
+          Resources
+        </StyledNavLink>
+        <StyledNavLink to="/contact-us" activeClassName="active">
+          Contact Us
+        </StyledNavLink>
+      </NavMenu>
     </HeaderContainer>
   );
 };
